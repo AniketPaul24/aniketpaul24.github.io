@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aniket Paul — Cybersecurity Educator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="shell">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="avatar-ring"><span>AP</span></div>
+        <p class="sidebar-name">Aniket Paul</p>
+        <p class="sidebar-role">Asst. Professor<br>Cybersecurity &amp; Forensics</p>
+        <p class="sidebar-loc">📍 Gujarat, India</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-btn active" data-tab="dashboard"><span class="ni">⊞</span>Dashboard</button>
+        <button class="nav-btn" data-tab="about"><span class="ni">👤</span>About</button>
+        <button class="nav-btn" data-tab="education"><span class="ni">🎓</span>Education</button>
+        <button class="nav-btn" data-tab="experience"><span class="ni">💼</span>Experience</button>
+        <button class="nav-btn" data-tab="skills"><span class="ni">⚡</span>Skills</button>
+        <button class="nav-btn" data-tab="projects"><span class="ni">🛠</span>Projects</button>
+        <button class="nav-btn" data-tab="research"><span class="ni">📄</span>Research</button>
+        <button class="nav-btn" data-tab="contact"><span class="ni">✉️</span>Contact</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="btn-cv" onclick="window.print()">⬇ Download CV</button>
+      </div>
+    </aside>
+
+    <!-- ===== TOPBAR (mobile) ===== -->
+    <header class="topbar">
+      <button class="burger" id="burger">&#9776;</button>
+      <span class="topbar-title" id="topbarTitle">Dashboard</span>
+      <button class="btn-cv-sm" onclick="window.print()">⬇ CV</button>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main" id="main">
+      <div class="bg-grid" aria-hidden="true"></div>
+
+      <!-- ── DASHBOARD ── -->
+      <div class="tab active" id="tab-dashboard">
+        <div class="dash-hero">
+          <div class="dash-hero-text">
+            <p class="pre-label">Hello, I'm</p>
+            <h1 class="dash-name">Aniket Paul</h1>
+            <p class="dash-role">Cybersecurity &nbsp;·&nbsp; Linux Systems &nbsp;·&nbsp; Digital Forensics</p>
+            <p class="dash-tagline">"I explore systems the way attackers do — so I can understand how to defend them."</p>
+            <p class="dash-intro">Assistant Professor at Parul Institute of Computer Application, Gujarat. I combine academic teaching with hands-on experimentation in Linux systems, security tools, and AI-assisted workflows.</p>
+            <div class="dash-cta">
+              <button class="btn-primary" data-goto="contact">Get In Touch</button>
+              <button class="btn-ghost" data-goto="projects">View Projects</button>
+            </div>
+          </div>
+          <div class="hero-terminal" aria-hidden="true">
+            <div class="terminal-bar"><span></span><span></span><span></span></div>
+            <div class="terminal-body" id="terminalBody"></div>
+          </div>
+        </div>
+
+        <div class="dash-stats">
+          <div class="stat-card"><span class="stat-num">1+</span><span class="stat-label">Years Teaching</span></div>
+          <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Projects Built</span></div>
+          <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Publications</span></div>
+          <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Subjects Taught</span></div>
+          <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Workshops</span></div>
+        </div>
+
+        <div class="dash-quickrow">
+          <div class="dash-qcard" data-goto="experience">
+            <p class="dq-icon">💼</p>
+            <p class="dq-title">Current Role</p>
+            <p class="dq-val">Asst. Professor @ Parul Institute</p>
+            <p class="dq-sub">Aug 2024 – Present</p>
+            <p class="dq-arrow">→</p>
+          </div>
+          <div class="dash-qcard" data-goto="education">
+            <p class="dq-icon">🎓</p>
+            <p class="dq-title">Education</p>
+            <p class="dq-val">Integrated MCA · CGPA 8.4/10</p>
+            <p class="dq-sub">Parul Institute of Engineering &amp; Tech</p>
+            <p class="dq-arrow">→</p>
+          </div>
+          <div class="dash-qcard" data-goto="research">
+            <p class="dq-icon">📄</p>
+            <p class="dq-title">Latest Publication</p>
+            <p class="dq-val">Socket Programming with Python</p>
+            <p class="dq-sub">Published · IEEE</p>
+            <p class="dq-arrow">→</p>
+          </div>
+          <div class="dash-qcard" data-goto="skills">
+            <p class="dq-icon">🔐</p>
+            <p class="dq-title">Core Focus</p>
+            <p class="dq-val">Forensics · OSINT · Linux</p>
+            <p class="dq-sub">Educator &amp; practitioner</p>
+            <p class="dq-arrow">→</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ABOUT ── -->
+      <div class="tab" id="tab-about">
+        <h2 class="page-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-left">
+            <div class="avatar-ring large"><span>AP</span></div>
+            <div class="avatar-badges">
+              <span class="badge">🎓 Educator</span>
+              <span class="badge">🐧 Linux</span>
+              <span class="badge">🔐 Security</span>
+              <span class="badge">🤖 AI</span>
+            </div>
+            <div class="about-links">
+              <a href="https://github.com/AniketPaul24" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://linkedin.com/in/aniket-paul-51340a209" target="_blank" rel="noopener">LinkedIn ↗</a>
+              <a href="https://orcid.org/0009-0006-5500-1942" target="_blank" rel="noopener">ORCID ↗</a>
+            </div>
+            <div class="interests-col">
+              <p class="interests-heading">Interests</p>
+              <span>🤖 AI Automation</span>
+              <span>🏍️ Motorcycling</span>
+              <span>🎸 Music Instruments</span>
+              <span>🎮 Gaming</span>
+            </div>
+          </div>
+          <div class="about-text">
+            <p>I'm Aniket Paul, an Assistant Professor based in Gujarat, India, where I teach undergraduate students cybersecurity concepts, digital forensics, and programming fundamentals. My classroom extends beyond slides — I run hands-on security labs where students get comfortable with tools and techniques that real analysts use every day.</p>
+            <p>My relationship with Linux started as curiosity and evolved into a daily practice. I troubleshoot, experiment, break things intentionally, and rebuild — because that's how I truly understand how systems behave under pressure. This philosophy shapes every course I teach.</p>
+            <p>Beyond systems, I'm deeply interested in threat intelligence, OSINT methodologies, and how open-source information can be leveraged both offensively and defensively. I follow the AI space closely and actively integrate AI-assisted workflows into research and teaching.</p>
+            <p>My approach to cybersecurity education is simple: <em>you cannot defend what you don't understand from the attacker's perspective.</em></p>
+            <div class="philosophy-box">
+              <p class="philosophy-q">"Security is learned best when you're allowed to break things."</p>
+              <p>I structure labs so students encounter real failure modes — misconfigured services, vulnerable code, unexpected system behavior. I encourage adopting the attacker's mindset: not to cause harm, but to fully understand the attack surface. Practical learning, honest experimentation, and intellectual curiosity are the pillars of my classroom.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── EDUCATION ── -->
+      <div class="tab" id="tab-education">
+        <h2 class="page-title">Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="timeline-card">
+              <span class="tl-year">2020 – 2024</span>
+              <h3>Integrated Master of Computer Application</h3>
+              <p class="tl-org">Parul Institute of Engineering and Technology</p>
+              <p class="tl-detail">CGPA: <strong>8.4 / 10</strong></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="timeline-card">
+              <span class="tl-year">2020</span>
+              <h3>Higher Secondary Certificate (12th Grade)</h3>
+              <p class="tl-org">Seventh Day Adventist Higher Secondary School</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="timeline-card">
+              <span class="tl-year">2018</span>
+              <h3>Secondary School Certificate (10th Grade)</h3>
+              <p class="tl-org">Seventh Day Adventist Higher Secondary School</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="page-title section-gap">Workshops &amp; Training</h2>
+        <div class="workshop-grid">
+          <div class="workshop-card"><span class="ws-icon">🔒</span><h4>Cybersecurity Tools and Practices</h4><p>2025 — Hands-on workshop covering modern security tooling and defensive practices.</p></div>
+          <div class="workshop-card"><span class="ws-icon">🐍</span><h4>Advanced Python Training</h4><p>In-depth training on Python for automation, data handling, and scripting.</p></div>
+          <div class="workshop-card"><span class="ws-icon">🌐</span><h4>Web Development using PHP</h4><p>Server-side fundamentals and dynamic application building.</p></div>
+          <div class="workshop-card"><span class="ws-icon">🤖</span><h4>Artificial Intelligence Concepts</h4><p>IBM-certified training covering foundational AI and ML concepts.</p></div>
+          <div class="workshop-card"><span class="ws-icon">⚙️</span><h4>C Programming Training</h4><p>Structured training in systems-level programming using C.</p></div>
+        </div>
+      </div>
+
+      <!-- ── EXPERIENCE ── -->
+      <div class="tab" id="tab-experience">
+        <h2 class="page-title">Professional Experience</h2>
+        <div class="exp-list">
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div><h3>Assistant Professor</h3><p class="exp-org">Parul Institute of Computer Application</p></div>
+              <span class="exp-date">Aug 2024 – Present</span>
+            </div>
+            <ul class="exp-points">
+              <li>Deliver undergraduate courses in Cybersecurity &amp; Digital Forensics, equipping students with real-world threat analysis skills.</li>
+              <li>Teach C Programming, Core Java, and Core Python with emphasis on applied problem-solving.</li>
+              <li>Conduct Data Science using Python labs covering data wrangling, visualization, and introductory ML.</li>
+              <li>Design and facilitate practical cybersecurity labs simulating real attacker techniques and defensive countermeasures.</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div><h3>Technical Support Executive</h3><p class="exp-org">Teleperformance</p></div>
+              <span class="exp-date">Dec 2023 – Jul 2024</span>
+            </div>
+            <ul class="exp-points">
+              <li>Provided Tier-1 and Tier-2 technical support for Microsoft Windows operating system issues.</li>
+              <li>Resolved Microsoft Office configuration, licensing, and usage issues for enterprise clients.</li>
+              <li>Maintained high customer satisfaction scores through clear and effective technical communication.</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div><h3>Teaching Assistant</h3><p class="exp-org">Parul University</p></div>
+              <span class="exp-date">Jun 2022 – Jan 2023</span>
+            </div>
+            <ul class="exp-points">
+              <li>Assisted faculty in delivering programming and CS coursework to undergraduate cohorts.</li>
+              <li>Supported laboratory sessions, graded assignments, and provided one-on-one academic mentoring.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── SKILLS ── -->
+      <div class="tab" id="tab-skills">
+        <h2 class="page-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3 class="skill-group-title"><span>🔐</span> Cybersecurity</h3>
+            <div class="skill-tags">
+              <span class="tag">Digital Forensics</span><span class="tag">OSINT Fundamentals</span>
+              <span class="tag">Threat Intelligence</span><span class="tag">Security Lab Teaching</span>
+              <span class="tag">Attacker Mindset</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-title"><span>🖥️</span> Systems &amp; Software</h3>
+            <div class="skill-tags">
+              <span class="tag">Linux</span><span class="tag">Windows Troubleshooting</span>
+              <span class="tag">Networking Basics</span><span class="tag">Python</span>
+              <span class="tag">Java</span><span class="tag">C Programming</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-title"><span>📚</span> Academic &amp; Teaching</h3>
+            <div class="skill-tags">
+              <span class="tag">Curriculum Design</span><span class="tag">Lab Instruction</span>
+              <span class="tag">Micro-teaching</span><span class="tag">Student Mentoring</span>
+              <span class="tag">Data Science</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PROJECTS ── -->
+      <div class="tab" id="tab-projects">
+        <h2 class="page-title">Projects</h2>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="project-num">01</div>
+            <h3>Citizen Management System</h3>
+            <p>A relational database-driven web application to securely store and manage citizens' complete medical histories with role-based access controls ensuring data privacy.</p>
+            <div class="project-footer">
+              <div class="project-tech"><span>MySQL</span><span>PHP</span><span>HTML/CSS</span></div>
+              <div class="project-skills">Database Design · Access Control · Healthcare IT</div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-num">02</div>
+            <h3>Buddy: Knowledge Saathi</h3>
+            <p>An AI-powered medical assistant built in Python leveraging NLP to answer health queries conversationally, designed as a first-line tool for users with limited healthcare access.</p>
+            <div class="project-footer">
+              <div class="project-tech"><span>Python</span><span>NLP</span><span>AI APIs</span></div>
+              <div class="project-skills">AI Development · Conversational UX · Healthcare AI</div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-num">03</div>
+            <h3>Passion8 E-Commerce Website</h3>
+            <p>A fully functional e-commerce platform with catalogue management, user authentication, shopping cart, and order processing with secure payment flow integration.</p>
+            <div class="project-footer">
+              <div class="project-tech"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
+              <div class="project-skills">Full-Stack · E-Commerce · UX Design</div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-num">04</div>
+            <h3>Decentralized Crypto Exchange</h3>
+            <p>A peer-to-peer cryptocurrency exchange built on blockchain enabling trustless token swaps. Smart contracts automate trade settlement and liquidity management.</p>
+            <div class="project-footer">
+              <div class="project-tech"><span>Solidity</span><span>Ethereum</span><span>Web3.js</span></div>
+              <div class="project-skills">Blockchain · Smart Contracts · DeFi</div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-num">05</div>
+            <h3>Decentralized File Storage</h3>
+            <p>A distributed file storage system using blockchain-based verification to ensure file integrity and ownership without centralized servers, with cryptographic proof.</p>
+            <div class="project-footer">
+              <div class="project-tech"><span>IPFS</span><span>Solidity</span><span>Python</span></div>
+              <div class="project-skills">Distributed Systems · Cryptography · Data Integrity</div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-num">06</div>
+            <h3>Yelp Review Sentiment Analysis</h3>
+            <p>An NLP pipeline processing Yelp reviews to classify sentiment using ML models, producing actionable customer satisfaction insights for businesses.</p>
+            <div class="project-footer">
+              <div class="project-tech"><span>Python</span><span>NLTK</span><span>Scikit-learn</span></div>
+              <div class="project-skills">NLP · Machine Learning · Data Analysis</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── RESEARCH ── -->
+      <div class="tab" id="tab-research">
+        <h2 class="page-title">Publications &amp; Research</h2>
+        <div class="pub-list">
+
+          <div class="pub-card">
+            <span class="pub-badge">IEEE</span>
+            <div class="pub-body">
+              <h3>Socket Programming with Python: Concepts and Applications</h3>
+              <p>Explores the fundamentals of socket-based network communication using Python, covering TCP/UDP protocols, client-server architectures, and practical implementation patterns for network security.</p>
+              <div class="pub-meta">
+                <span>📋 Publisher: IEEE</span>
+                <span>🏷️ Socket Programming · Python · Networking · Security</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-card">
+            <span class="pub-badge">IJRASET</span>
+            <div class="pub-body">
+              <h3>Environmental Sustainability of Polygon's Proof-of-Stake Consensus Mechanism</h3>
+              <p>Analytical study examining the energy efficiency and environmental footprint of Polygon's PoS consensus compared to traditional Proof-of-Work blockchains, contributing to sustainable blockchain discourse.</p>
+              <div class="pub-meta">
+                <span>📋 Publisher: IJRASET</span>
+                <span>🏷️ Blockchain · Sustainability · Consensus · Polygon</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── CONTACT ── -->
+      <div class="tab" id="tab-contact">
+        <h2 class="page-title">Contact</h2>
+        <p class="contact-intro">Interested in collaboration, research, or faculty opportunities? I'd be glad to connect.</p>
+        <div class="contact-grid">
+          <a href="mailto:aniketspaul24@gmail.com" class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <div><p class="contact-label">Email</p><p class="contact-value">aniketspaul24@gmail.com</p></div>
+          </a>
+          <a href="https://github.com/AniketPaul24" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-icon">💻</span>
+            <div><p class="contact-label">GitHub</p><p class="contact-value">github.com/AniketPaul24</p></div>
+          </a>
+          <a href="https://linkedin.com/in/aniket-paul-51340a209" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-icon">🔗</span>
+            <div><p class="contact-label">LinkedIn</p><p class="contact-value">aniket-paul-51340a209</p></div>
+          </a>
+          <a href="https://orcid.org/0009-0006-5500-1942" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-icon">📖</span>
+            <div><p class="contact-label">ORCID</p><p class="contact-value">0009-0006-5500-1942</p></div>
+          </a>
+          <div class="contact-card no-link">
+            <span class="contact-icon">📍</span>
+            <div><p class="contact-label">Location</p><p class="contact-value">Gujarat, India</p></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
