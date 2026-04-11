@@ -60,6 +60,7 @@ em { font-style: italic; }
   margin: 0 auto 12px;
   box-shadow: 0 0 20px var(--accent-glow);
   background: radial-gradient(circle, #1c2840, #0b0e18);
+  overflow: hidden;
 }
 .avatar-ring span {
   font-family: var(--font-display);
