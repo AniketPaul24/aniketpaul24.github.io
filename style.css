@@ -644,6 +644,37 @@ em { font-style: italic; }
 }
 
 /* ============================
+   PROFILE PHOTO
+   ============================ */
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================
+   CV ANCHOR BUTTONS
+   ============================ */
+a.btn-cv {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+a.btn-cv:last-child { margin-bottom: 0; }
+a.btn-cv:hover { text-decoration: none; }
+
+/* Topbar CV pair */
+.topbar-cv {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* ============================
    PRINT / CV
    ============================ */
 @media print {
