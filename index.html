@@ -2,490 +2,566 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aniket Paul — Cybersecurity Educator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aniket Paul — Assistant Professor & Cybersecurity Educator</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="shell">
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress" aria-hidden="true"></div>
 
-    <!-- ===== SIDEBAR ===== -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-top">
-        <div class="avatar-ring"><img src="Aniket_Paul.png" alt="Aniket Paul" class="avatar-photo" /></div>
-        <p class="sidebar-name">Aniket Paul</p>
-        <p class="sidebar-role">Asst. Professor<br>Cybersecurity &amp; Forensics</p>
-        <p class="sidebar-loc">📍 Gujarat, India</p>
-      </div>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">AP<span class="dot">.</span></span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-cta" onclick="downloadCV()">Download CV</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#research" class="mobile-link">Research</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </nav>
 
-      <nav class="sidebar-nav">
-        <button class="nav-btn active" data-tab="dashboard"><span class="ni">⊞</span>Dashboard</button>
-        <button class="nav-btn" data-tab="about"><span class="ni">👤</span>About</button>
-        <button class="nav-btn" data-tab="education"><span class="ni">🎓</span>Education</button>
-        <button class="nav-btn" data-tab="experience"><span class="ni">💼</span>Experience</button>
-        <button class="nav-btn" data-tab="skills"><span class="ni">⚡</span>Skills</button>
-        <button class="nav-btn" data-tab="projects"><span class="ni">🛠</span>Projects</button>
-        <button class="nav-btn" data-tab="research"><span class="ni">📄</span>Research</button>
-        <button class="nav-btn" data-tab="contact"><span class="ni">✉️</span>Contact</button>
-      </nav>
-
-      <div class="sidebar-bottom">
-        <a href="Aniket_Paul_CV.pdf" target="_blank" class="btn-cv">View CV</a>
-        <a href="Aniket_Paul_CV.pdf" download class="btn-cv btn-cv-dl">⬇ Download CV</a>
-      </div>
-    </aside>
-
-    <!-- ===== TOPBAR (mobile) ===== -->
-    <header class="topbar">
-      <button class="burger" id="burger">&#9776;</button>
-      <span class="topbar-title" id="topbarTitle">Dashboard</span>
-      <div class="topbar-cv">
-        <a href="Aniket_Paul_CV.pdf" target="_blank" class="btn-cv-sm">View CV</a>
-        <a href="Aniket_Paul_CV.pdf" download class="btn-cv-sm">⬇</a>
-      </div>
-    </header>
-
-    <!-- ===== MAIN ===== -->
-    <main class="main" id="main">
-      <div class="bg-grid" aria-hidden="true"></div>
-
-      <!-- ── DASHBOARD ── -->
-      <div class="tab active" id="tab-dashboard">
-        <div class="dash-hero">
-          <div class="dash-hero-text">
-            <p class="pre-label">Hello, I'm</p>
-            <h1 class="dash-name">Aniket Paul</h1>
-            <p class="dash-role">Cybersecurity &nbsp;·&nbsp; Linux Systems &nbsp;·&nbsp; Digital Forensics</p>
-            <p class="dash-tagline">"I explore systems the way attackers do — so I can understand how to defend them."</p>
-            <p class="dash-intro">Assistant Professor at Parul Institute of Computer Application, Gujarat. I combine academic teaching with hands-on experimentation in Linux systems, security tools, and AI-assisted workflows.</p>
-            <div class="dash-cta">
-              <button class="btn-primary" data-goto="contact">Get In Touch</button>
-              <button class="btn-ghost" data-goto="projects">View Projects</button>
-            </div>
-          </div>
-          <div class="hero-terminal" aria-hidden="true">
-            <div class="terminal-bar"><span></span><span></span><span></span></div>
-            <div class="terminal-body" id="terminalBody"></div>
-          </div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <p class="hero-label reveal">Assistant Professor · Cybersecurity & Digital Forensics</p>
+        <h1 class="hero-name reveal">Aniket<br>Paul</h1>
+        <p class="hero-tagline reveal">"Bridging academic cybersecurity education<br class="br-lg"> with real-world system thinking."</p>
+        <p class="hero-summary reveal">
+          I am an educator and technologist with hands-on expertise in cybersecurity, digital forensics, and applied computing. Currently teaching at Parul Institute of Computer Application, I focus on translating complex security concepts into practical, lab-driven learning experiences.
+        </p>
+        <div class="hero-actions reveal">
+          <button class="btn-primary" onclick="downloadCV()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </button>
+          <a href="#contact" class="btn-outline">Contact Me</a>
         </div>
-
-        <div class="dash-stats">
-          <div class="stat-card"><span class="stat-num">1+</span><span class="stat-label">Years Teaching</span></div>
-          <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Projects Built</span></div>
-          <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Publications</span></div>
-          <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Subjects Taught</span></div>
-          <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Workshops</span></div>
-        </div>
-
-        <div class="dash-quickrow">
-          <div class="dash-qcard" data-goto="experience">
-            <p class="dq-icon">💼</p>
-            <p class="dq-title">Current Role</p>
-            <p class="dq-val">Asst. Professor @ Parul Institute</p>
-            <p class="dq-sub">Aug 2024 – Present</p>
-            <p class="dq-arrow">→</p>
-          </div>
-          <div class="dash-qcard" data-goto="education">
-            <p class="dq-icon">🎓</p>
-            <p class="dq-title">Education</p>
-            <p class="dq-val">Integrated MCA · CGPA 8.4/10</p>
-            <p class="dq-sub">Parul Institute of Engineering &amp; Tech</p>
-            <p class="dq-arrow">→</p>
-          </div>
-          <div class="dash-qcard" data-goto="research">
-            <p class="dq-icon">📄</p>
-            <p class="dq-title">Latest Publication</p>
-            <p class="dq-val">Socket Programming with Python</p>
-            <p class="dq-sub">Published · IEEE</p>
-            <p class="dq-arrow">→</p>
-          </div>
-          <div class="dash-qcard" data-goto="skills">
-            <p class="dq-icon">🔐</p>
-            <p class="dq-title">Core Focus</p>
-            <p class="dq-val">Forensics · OSINT · Linux</p>
-            <p class="dq-sub">Educator &amp; practitioner</p>
-            <p class="dq-arrow">→</p>
-          </div>
+        <div class="hero-meta reveal">
+          <span class="meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ahmedabad, Gujarat, India
+          </span>
+          <span class="meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            MCA — Cybersecurity & Automation
+          </span>
         </div>
       </div>
-
-      <!-- ── ABOUT ── -->
-      <div class="tab" id="tab-about">
-        <h2 class="page-title">About Me</h2>
-        <div class="about-grid">
-          <div class="about-left">
-            <div class="avatar-ring large"><img src="Aniket_Paul.png" alt="Aniket Paul" class="avatar-photo" /></div>
-            <div class="avatar-badges">
-              <span class="badge">🎓 Educator</span>
-              <span class="badge">🐧 Linux</span>
-              <span class="badge">🔐 Security</span>
-              <span class="badge">🤖 AI</span>
-            </div>
-            <div class="about-links">
-              <a href="https://github.com/AniketPaul24" target="_blank" rel="noopener">GitHub ↗</a>
-              <a href="https://linkedin.com/in/aniket-paul-51340a209" target="_blank" rel="noopener">LinkedIn ↗</a>
-              <a href="https://orcid.org/0009-0006-5500-1942" target="_blank" rel="noopener">ORCID ↗</a>
-            </div>
-            <div class="interests-col">
-              <p class="interests-heading">Interests</p>
-              <span>🤖 AI Automation</span>
-              <span>🏍️ Motorcycling</span>
-              <span>🎸 Music Instruments</span>
-              <span>🎮 Gaming</span>
-            </div>
+      <div class="hero-aside reveal">
+        <div class="aside-card">
+          <div class="aside-header">
+            <span class="mono-label">// profile.snapshot</span>
           </div>
-          <div class="about-text">
-            <p>I'm Aniket Paul, an Assistant Professor based in Gujarat, India, where I teach undergraduate students cybersecurity concepts, digital forensics, and programming fundamentals. My classroom extends beyond slides — I run hands-on security labs where students get comfortable with tools and techniques that real analysts use every day.</p>
-            <p>My relationship with Linux started as curiosity and evolved into a daily practice. I troubleshoot, experiment, break things intentionally, and rebuild — because that's how I truly understand how systems behave under pressure. This philosophy shapes every course I teach.</p>
-            <p>Beyond systems, I'm deeply interested in threat intelligence, OSINT methodologies, and how open-source information can be leveraged both offensively and defensively. I follow the AI space closely and actively integrate AI-assisted workflows into research and teaching.</p>
-            <p>My approach to cybersecurity education is simple: <em>you cannot defend what you don't understand from the attacker's perspective.</em></p>
-            <div class="philosophy-box">
-              <p class="philosophy-q">"Security is learned best when you're allowed to break things."</p>
-              <p>I structure labs so students encounter real failure modes — misconfigured services, vulnerable code, unexpected system behavior. I encourage adopting the attacker's mindset: not to cause harm, but to fully understand the attack surface. Practical learning, honest experimentation, and intellectual curiosity are the pillars of my classroom.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── WHAT MAKES ME DIFFERENT ── -->
-        <div class="diff-section">
-          <div class="diff-header">
-            <span class="diff-eyebrow">// beyond the resume</span>
-            <h3 class="diff-title">What Makes Me Different</h3>
-            <p class="diff-subtitle">Most portfolios show what someone knows. This shows how I actually think.</p>
-          </div>
-
-          <div class="diff-split">
-            <div class="diff-traits">
-              <div class="diff-trait">
-                <div class="dt-icon-wrap"><span class="dt-icon">🐧</span></div>
-                <div class="dt-content">
-                  <h4>Linux is my daily driver</h4>
-                  <p>Not just a lab tool. I use Linux as my primary OS — troubleshoot kernel issues, configure services, debug package conflicts. Real usage builds real intuition.</p>
-                  <span class="dt-tag">Daily · Not just labs</span>
-                </div>
-              </div>
-              <div class="diff-trait">
-                <div class="dt-icon-wrap"><span class="dt-icon">🔬</span></div>
-                <div class="dt-content">
-                  <h4>I go beyond the curriculum</h4>
-                  <p>Security tools I experiment with aren't on any syllabus. I explore them because they're interesting — that curiosity is what keeps me genuinely ahead.</p>
-                  <span class="dt-tag">Self-directed · Tool explorer</span>
-                </div>
-              </div>
-              <div class="diff-trait">
-                <div class="dt-icon-wrap"><span class="dt-icon">🤖</span></div>
-                <div class="dt-content">
-                  <h4>AI + Security — not separately</h4>
-                  <p>I actively explore AI prompt engineering alongside cybersecurity workflows. These aren't separate interests — they compound into sharper threat modelling and better research.</p>
-                  <span class="dt-tag">Prompt engineering · AI-augmented</span>
-                </div>
-              </div>
-              <div class="diff-trait">
-                <div class="dt-icon-wrap"><span class="dt-icon">🧩</span></div>
-                <div class="dt-content">
-                  <h4>I learn through real failure</h4>
-                  <p>Broken configs, failed mounts, unexpected system behaviour — these are my classroom. I don't wait for a structured lesson. I debug until I understand why.</p>
-                  <span class="dt-tag">Debugging · System-level thinking</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="diff-compare">
-              <div class="diff-compare-label">// honest self-audit</div>
-              <div class="diff-vs">
-                <div class="diff-col diff-col-me">
-                  <div class="diff-col-head">
-                    <span class="diff-col-dot dot-green"></span>
-                    <span>Me (Reality)</span>
-                  </div>
-                  <ul>
-                    <li><span class="check">✦</span> Curious by default</li>
-                    <li><span class="check">✦</span> Experimental mindset</li>
-                    <li><span class="check">✦</span> System-level thinker</li>
-                    <li><span class="check">✦</span> Learns by breaking things</li>
-                    <li><span class="check">✦</span> AI-augmented workflow</li>
-                    <li><span class="check">✦</span> Debugs before Googling</li>
-                  </ul>
-                </div>
-                <div class="diff-divider"><div class="diff-vs-label">vs</div></div>
-                <div class="diff-col diff-col-site">
-                  <div class="diff-col-head">
-                    <span class="diff-col-dot dot-amber"></span>
-                    <span>Typical Portfolio</span>
-                  </div>
-                  <ul>
-                    <li><span class="cross">–</span> Clean presentation</li>
-                    <li><span class="cross">–</span> Academic framing</li>
-                    <li><span class="cross">–</span> Slightly generic</li>
-                    <li><span class="cross">–</span> Lists tools, not how</li>
-                    <li><span class="cross">–</span> Shows what, not why</li>
-                    <li><span class="cross">–</span> No personality signal</li>
-                  </ul>
-                </div>
-              </div>
-              <p class="diff-note">This site tries to bridge that gap — the terminal, the attacker's tagline, the UGC NET badge. These aren't decoration. They're signals.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ── EDUCATION ── -->
-      <div class="tab" id="tab-education">
-        <h2 class="page-title">Education</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="tl-dot"></div>
-            <div class="timeline-card">
-              <span class="tl-year">2020 – 2024</span>
-              <h3>Integrated Master of Computer Application</h3>
-              <p class="tl-org">Parul Institute of Engineering and Technology</p>
-              <p class="tl-detail">CGPA: <strong>8.4 / 10</strong></p>
-              <span class="ugc-badge">UGC NET Qualified — Eligible for PhD</span>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-dot"></div>
-            <div class="timeline-card">
-              <span class="tl-year">2020</span>
-              <h3>Higher Secondary Certificate (12th Grade)</h3>
-              <p class="tl-org">Seventh Day Adventist Higher Secondary School</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-dot"></div>
-            <div class="timeline-card">
-              <span class="tl-year">2018</span>
-              <h3>Secondary School Certificate (10th Grade)</h3>
-              <p class="tl-org">Seventh Day Adventist Higher Secondary School</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="phd-card">
-          <span class="phd-icon">🎓</span>
-          <div>
-            <h4>PhD Aspiration</h4>
-            <p>Having qualified <strong>UGC NET</strong>, I am actively seeking PhD opportunities in <strong>Cybersecurity and Digital Forensics</strong>. My research interests lie at the intersection of threat intelligence, forensic methodologies, and AI-driven security systems — where I aim to contribute original, impactful work to the academic and practitioner community.</p>
-          </div>
-        </div>
-
-        <h2 class="page-title section-gap">Workshops &amp; Training</h2>
-        <div class="workshop-grid">
-          <div class="workshop-card"><span class="ws-icon">🔒</span><h4>Cybersecurity Tools and Practices</h4><p>2025 — Hands-on workshop covering modern security tooling and defensive practices.</p></div>
-          <div class="workshop-card"><span class="ws-icon">🐍</span><h4>Advanced Python Training</h4><p>In-depth training on Python for automation, data handling, and scripting.</p></div>
-          <div class="workshop-card"><span class="ws-icon">🌐</span><h4>Web Development using PHP</h4><p>Server-side fundamentals and dynamic application building.</p></div>
-          <div class="workshop-card"><span class="ws-icon">🤖</span><h4>Artificial Intelligence Concepts</h4><p>IBM-certified training covering foundational AI and ML concepts.</p></div>
-          <div class="workshop-card"><span class="ws-icon">⚙️</span><h4>C Programming Training</h4><p>Structured training in systems-level programming using C.</p></div>
+          <ul class="snapshot-list">
+            <li>
+              <span class="snap-marker">→</span>
+              <span>Assistant Professor at <strong>Parul Institute of Computer Application</strong> since Aug 2024</span>
+            </li>
+            <li>
+              <span class="snap-marker">→</span>
+              <span>Published researcher in <strong>IEEE</strong> — Socket Programming & Python Networking</span>
+            </li>
+            <li>
+              <span class="snap-marker">→</span>
+              <span>Core strengths in <strong>Cybersecurity, Digital Forensics, OSINT</strong>, and Blockchain</span>
+            </li>
+            <li>
+              <span class="snap-marker">→</span>
+              <span>Pursuing academic and industry roles in <strong>Security Analysis</strong> & higher education</span>
+            </li>
+            <li>
+              <span class="snap-marker">→</span>
+              <span>Integrated MCA graduate — CGPA <strong>8.4/10</strong> from Parul University</span>
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
+    <div class="hero-rule"></div>
+  </section>
 
-      <!-- ── EXPERIENCE ── -->
-      <div class="tab" id="tab-experience">
-        <h2 class="page-title">Professional Experience</h2>
-        <div class="exp-list">
+  <!-- PROFESSIONAL SUMMARY -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 01 — about</span>
+        <h2 class="section-title">Professional Summary</h2>
+      </div>
+      <div class="summary-body">
+        <p>
+          I am an Assistant Professor at Parul Institute of Computer Application, where I teach undergraduate students across disciplines including Cybersecurity and Forensics, Core Java, Python, and Data Science. My teaching philosophy is rooted in practical, concept-driven instruction — I design coursework that equips students with both theoretical foundations and applied skills relevant to modern industry demands.
+        </p>
+        <p>
+          My technical background spans cybersecurity, digital forensics, OSINT, and full-stack development. I have developed and delivered lab-based sessions using industry-standard security tools, and I bring direct industry experience from a technical support role at Teleperformance, where I resolved complex Microsoft Windows and Office ecosystem issues at scale.
+        </p>
+        <p>
+          I am actively directing research in anti-adversarial defence frameworks for formal academic publication, and I hold an IEEE publication in computer networking. My career ambition is to contribute meaningfully at the intersection of academic cybersecurity education and real-world security operations — whether as a faculty member in a research-active institution or as a security analyst in a forward-thinking organisation.
+        </p>
+      </div>
+    </div>
+  </section>
 
-          <div class="exp-card">
-            <div class="exp-header">
-              <div><h3>Assistant Professor</h3><p class="exp-org">Parul Institute of Computer Application</p></div>
-              <span class="exp-date">Aug 2024 – Present</span>
+  <!-- CORE COMPETENCIES -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 02 — skills</span>
+        <h2 class="section-title">Core Competencies</h2>
+      </div>
+      <div class="competencies-grid">
+        <div class="comp-card reveal">
+          <div class="comp-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Cybersecurity &amp; Digital Forensics</h3>
+          <ul>
+            <li>Cybersecurity principles &amp; threat modelling</li>
+            <li>Digital forensic investigation techniques</li>
+            <li>OSINT &amp; threat intelligence methodologies</li>
+            <li>Anti-adversarial defence framework research</li>
+            <li>Lab-based practical security instruction</li>
+          </ul>
+        </div>
+        <div class="comp-card reveal">
+          <div class="comp-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Systems &amp; Troubleshooting</h3>
+          <ul>
+            <li>Microsoft Windows OS (advanced)</li>
+            <li>Microsoft Office ecosystem support</li>
+            <li>Operating systems architecture</li>
+            <li>Technical problem diagnosis &amp; resolution</li>
+            <li>Blockchain &amp; decentralised systems</li>
+          </ul>
+        </div>
+        <div class="comp-card reveal">
+          <div class="comp-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Programming &amp; Tools</h3>
+          <ul>
+            <li>Python — Data Science, NLP, AI/ML</li>
+            <li>Java (Core)</li>
+            <li>C Programming</li>
+            <li>React JS</li>
+            <li>Computer networking &amp; socket programming</li>
+          </ul>
+        </div>
+        <div class="comp-card reveal">
+          <div class="comp-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3>Teaching &amp; Academic Skills</h3>
+          <ul>
+            <li>Curriculum design (UG level)</li>
+            <li>Micro-teaching &amp; content delivery</li>
+            <li>Lab session facilitation</li>
+            <li>Academic research &amp; publication</li>
+            <li>Student mentoring &amp; problem analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 03 — experience</span>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-left">
+            <span class="timeline-date">Aug 2024 — Present</span>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-right">
+            <div class="timeline-header">
+              <h3>Assistant Professor</h3>
+              <span class="timeline-org">Parul Institute of Computer Application · BCA</span>
             </div>
-            <ul class="exp-points">
-              <li>Deliver undergraduate courses in Cybersecurity &amp; Digital Forensics, equipping students with real-world threat analysis skills.</li>
-              <li>Teach C Programming, Core Java, and Core Python with emphasis on applied problem-solving.</li>
-              <li>Conduct Data Science using Python labs covering data wrangling, visualization, and introductory ML.</li>
-              <li>Design and facilitate practical cybersecurity labs simulating real attacker techniques and defensive countermeasures.</li>
+            <ul class="timeline-points">
+              <li>Design and deliver undergraduate coursework in Cybersecurity &amp; Forensics, C, Core Java, Core Python, and Data Science using Python.</li>
+              <li>Conduct lab-based practical sessions applying cybersecurity tools and forensic analysis workflows, reinforcing theoretical learning with hands-on application.</li>
+              <li>Apply micro-teaching methodologies to ensure concept clarity and student engagement across diverse learning levels.</li>
+              <li>Mentor students in project development and problem-solving across security, application development, and data science domains.</li>
             </ul>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-header">
-              <div><h3>Technical Support Executive</h3><p class="exp-org">Teleperformance</p></div>
-              <span class="exp-date">Dec 2023 – Jul 2024</span>
+            <div class="timeline-tags">
+              <span>Cybersecurity</span><span>Digital Forensics</span><span>Python</span><span>Java</span><span>C</span>
             </div>
-            <ul class="exp-points">
-              <li>Provided Tier-1 and Tier-2 technical support for Microsoft Windows operating system issues.</li>
-              <li>Resolved Microsoft Office configuration, licensing, and usage issues for enterprise clients.</li>
-              <li>Maintained high customer satisfaction scores through clear and effective technical communication.</li>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-left">
+            <span class="timeline-date">Dec 2023 — Jul 2024</span>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-right">
+            <div class="timeline-header">
+              <h3>Technical Support Executive</h3>
+              <span class="timeline-org">Teleperformance · ITES / BPO · Microsoft Account</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Provided advanced technical support for Microsoft Windows and Office product suite to enterprise and consumer clients.</li>
+              <li>Diagnosed and resolved complex software, configuration, and compatibility issues within defined SLA parameters.</li>
+              <li>Developed deep proficiency in Windows OS architecture and Office ecosystem troubleshooting at production scale.</li>
             </ul>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-header">
-              <div><h3>Teaching Assistant</h3><p class="exp-org">Parul University</p></div>
-              <span class="exp-date">Jun 2022 – Jan 2023</span>
+            <div class="timeline-tags">
+              <span>Microsoft Windows</span><span>Office Suite</span><span>Technical Support</span>
             </div>
-            <ul class="exp-points">
-              <li>Assisted faculty in delivering programming and CS coursework to undergraduate cohorts.</li>
-              <li>Supported laboratory sessions, graded assignments, and provided one-on-one academic mentoring.</li>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-left">
+            <span class="timeline-date">Jun 2022 — Jan 2023</span>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-right">
+            <div class="timeline-header">
+              <h3>Teaching Assistant (Internship)</h3>
+              <span class="timeline-org">Parul University</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Assisted faculty in delivering coursework covering Operating Systems, Java, and Python programming.</li>
+              <li>Supported students in problem analysis and structured problem-solving exercises during lab sessions.</li>
+              <li>Gained foundational academic instruction experience that directly informed subsequent teaching roles.</li>
             </ul>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ── SKILLS ── -->
-      <div class="tab" id="tab-skills">
-        <h2 class="page-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3 class="skill-group-title"><span>🔐</span> Cybersecurity</h3>
-            <div class="skill-tags">
-              <span class="tag">Digital Forensics</span><span class="tag">OSINT Fundamentals</span>
-              <span class="tag">Threat Intelligence</span><span class="tag">Security Lab Teaching</span>
-              <span class="tag">Attacker Mindset</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3 class="skill-group-title"><span>🖥️</span> Systems &amp; Software</h3>
-            <div class="skill-tags">
-              <span class="tag">Linux</span><span class="tag">Windows Troubleshooting</span>
-              <span class="tag">Networking Basics</span><span class="tag">Python</span>
-              <span class="tag">Java</span><span class="tag">C Programming</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3 class="skill-group-title"><span>📚</span> Academic &amp; Teaching</h3>
-            <div class="skill-tags">
-              <span class="tag">Curriculum Design</span><span class="tag">Lab Instruction</span>
-              <span class="tag">Micro-teaching</span><span class="tag">Student Mentoring</span>
-              <span class="tag">Data Science</span>
+            <div class="timeline-tags">
+              <span>Java</span><span>Python</span><span>Operating Systems</span><span>Problem Analysis</span>
             </div>
           </div>
         </div>
+
       </div>
+    </div>
+  </section>
 
-      <!-- ── PROJECTS ── -->
-      <div class="tab" id="tab-projects">
-        <h2 class="page-title">Projects</h2>
-        <div class="projects-grid">
-
-          <div class="project-card">
-            <div class="project-num">01</div>
-            <h3>Citizen Management System</h3>
-            <p>A relational database-driven web application to securely store and manage citizens' complete medical histories with role-based access controls ensuring data privacy.</p>
-            <div class="project-footer">
-              <div class="project-tech"><span>MySQL</span><span>PHP</span><span>HTML/CSS</span></div>
-              <div class="project-skills">Database Design · Access Control · Healthcare IT</div>
-            </div>
+  <!-- EDUCATION -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 04 — education</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-left">
+          <span class="edu-year">2020 – 2024</span>
+        </div>
+        <div class="edu-right">
+          <h3>Integrated Master's of Computer Application (MCA)</h3>
+          <p class="edu-inst">Parul Institute of Engineering and Technology, Parul University</p>
+          <p class="edu-detail">Ahmedabad, Gujarat, India</p>
+          <div class="edu-cgpa">
+            <span class="mono-label">CGPA</span>
+            <span class="cgpa-val">8.4 <span>/ 10</span></span>
           </div>
-
-          <div class="project-card">
-            <div class="project-num">02</div>
-            <h3>Buddy: Knowledge Saathi</h3>
-            <p>An AI-powered medical assistant built in Python leveraging NLP to answer health queries conversationally, designed as a first-line tool for users with limited healthcare access.</p>
-            <div class="project-footer">
-              <div class="project-tech"><span>Python</span><span>NLP</span><span>AI APIs</span></div>
-              <div class="project-skills">AI Development · Conversational UX · Healthcare AI</div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-num">03</div>
-            <h3>Passion8 E-Commerce Website</h3>
-            <p>A fully functional e-commerce platform with catalogue management, user authentication, shopping cart, and order processing with secure payment flow integration.</p>
-            <div class="project-footer">
-              <div class="project-tech"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
-              <div class="project-skills">Full-Stack · E-Commerce · UX Design</div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-num">04</div>
-            <h3>Decentralized Crypto Exchange</h3>
-            <p>A peer-to-peer cryptocurrency exchange built on blockchain enabling trustless token swaps. Smart contracts automate trade settlement and liquidity management.</p>
-            <div class="project-footer">
-              <div class="project-tech"><span>Solidity</span><span>Ethereum</span><span>Web3.js</span></div>
-              <div class="project-skills">Blockchain · Smart Contracts · DeFi</div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-num">05</div>
-            <h3>Decentralized File Storage</h3>
-            <p>A distributed file storage system using blockchain-based verification to ensure file integrity and ownership without centralized servers, with cryptographic proof.</p>
-            <div class="project-footer">
-              <div class="project-tech"><span>IPFS</span><span>Solidity</span><span>Python</span></div>
-              <div class="project-skills">Distributed Systems · Cryptography · Data Integrity</div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-num">06</div>
-            <h3>Yelp Review Sentiment Analysis</h3>
-            <p>An NLP pipeline processing Yelp reviews to classify sentiment using ML models, producing actionable customer satisfaction insights for businesses.</p>
-            <div class="project-footer">
-              <div class="project-tech"><span>Python</span><span>NLTK</span><span>Scikit-learn</span></div>
-              <div class="project-skills">NLP · Machine Learning · Data Analysis</div>
-            </div>
-          </div>
-
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- ── RESEARCH ── -->
-      <div class="tab" id="tab-research">
-        <h2 class="page-title">Publications &amp; Research</h2>
-        <div class="pub-list">
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 05 — projects</span>
+        <h2 class="section-title">Selected Projects</h2>
+      </div>
+      <div class="projects-grid">
 
-          <div class="pub-card">
-            <span class="pub-badge">IEEE</span>
-            <div class="pub-body">
-              <h3>Socket Programming with Python: Concepts and Applications</h3>
-              <p>Explores the fundamentals of socket-based network communication using Python, covering TCP/UDP protocols, client-server architectures, and practical implementation patterns for network security.</p>
-              <div class="pub-meta">
-                <span>📋 Publisher: IEEE</span>
-                <span>🏷️ Socket Programming · Python · Networking · Security</span>
-              </div>
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-num">01</span>
+            <div class="project-links">
+              <a href="https://github.com/AniketPaul24" target="_blank" class="proj-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                View Code
+              </a>
             </div>
           </div>
+          <h3>Buddy: Knowledge Saathi</h3>
+          <p class="project-purpose">Medical AI personal assistant for clinical workflow support.</p>
+          <ul class="project-points">
+            <li>Assists doctors in scheduling, patient history management, and diagnostic guidance.</li>
+            <li>Built as a conversational Python AI leveraging NLP and AI/ML workflows.</li>
+            <li>Demonstrates applied AI in healthcare — a high-impact, real-world domain.</li>
+          </ul>
+          <div class="project-stack">
+            <span>Python</span><span>AI/ML</span><span>NLP</span>
+          </div>
+        </div>
 
-          <div class="pub-card">
-            <span class="pub-badge">IJRASET</span>
-            <div class="pub-body">
-              <h3>Environmental Sustainability of Polygon's Proof-of-Stake Consensus Mechanism</h3>
-              <p>Analytical study examining the energy efficiency and environmental footprint of Polygon's PoS consensus compared to traditional Proof-of-Work blockchains, contributing to sustainable blockchain discourse.</p>
-              <div class="pub-meta">
-                <span>📋 Publisher: IJRASET</span>
-                <span>🏷️ Blockchain · Sustainability · Consensus · Polygon</span>
-              </div>
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-num">02</span>
+            <div class="project-links">
+              <a href="https://github.com/AniketPaul24" target="_blank" class="proj-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                View Code
+              </a>
             </div>
           </div>
+          <h3>Decentralised Crypto-Currency Exchange</h3>
+          <p class="project-purpose">Token-based decentralised exchange showcasing blockchain-level encryption.</p>
+          <ul class="project-points">
+            <li>Implements a fully decentralised web application for token-based crypto trading.</li>
+            <li>Demonstrates cryptographic principles and blockchain security in a working system.</li>
+            <li>Selected specifically to illustrate deep understanding of decentralised trust models.</li>
+          </ul>
+          <div class="project-stack">
+            <span>Blockchain</span><span>Cryptography</span><span>Web3</span>
+          </div>
+        </div>
 
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-num">03</span>
+            <div class="project-links">
+              <a href="https://github.com/AniketPaul24" target="_blank" class="proj-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                View Code
+              </a>
+            </div>
+          </div>
+          <h3>Decentralised File Storage &amp; Sharing System</h3>
+          <p class="project-purpose">Secure, decentralised file storage system underpinned by blockchain security.</p>
+          <ul class="project-points">
+            <li>Enables peer-to-peer file storage and sharing without a central authority.</li>
+            <li>Highlights the security guarantees provided by blockchain architecture over traditional cloud storage.</li>
+            <li>Demonstrates practical knowledge of distributed systems and data integrity mechanisms.</li>
+          </ul>
+          <div class="project-stack">
+            <span>Blockchain</span><span>Decentralised Storage</span><span>Security</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-num">04</span>
+            <div class="project-links">
+              <a href="https://github.com/AniketPaul24" target="_blank" class="proj-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                View Code
+              </a>
+            </div>
+          </div>
+          <h3>Yelp Review Sentiment Analysis</h3>
+          <p class="project-purpose">NLP pipeline to extract and classify sentiment from Yelp user reviews.</p>
+          <ul class="project-points">
+            <li>Processes large volumes of user-generated reviews to identify positive, negative, and neutral sentiment patterns.</li>
+            <li>Full-stack implementation with a React JS frontend and Python-based NLP data science backend.</li>
+            <li>Demonstrates proficiency across the data science pipeline — from ingestion and processing to visualisation.</li>
+          </ul>
+          <div class="project-stack">
+            <span>React JS</span><span>Python</span><span>NLP</span><span>Data Science</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 06 — research</span>
+        <h2 class="section-title">Research &amp; Publications</h2>
+      </div>
+      <div class="research-list">
+
+        <div class="research-item reveal">
+          <div class="research-badge">IEEE</div>
+          <div class="research-body">
+            <h3>Socket Programming</h3>
+            <p class="research-venue">Published · Institute of Electrical and Electronics Engineers (IEEE)</p>
+            <p class="research-desc">An applied research contribution exploring socket programming principles and computer networking using Python, demonstrating low-level network communication protocols and connection management techniques.</p>
+            <div class="research-tags">
+              <span>Python</span><span>Computer Networking</span><span>Socket Programming</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-item reveal">
+          <div class="research-badge in-progress">In Progress</div>
+          <div class="research-body">
+            <h3>Anti-Adversarial Defence Framework</h3>
+            <p class="research-venue">Forthcoming · Targeting formal academic publication</p>
+            <p class="research-desc">Currently developing a structured research framework addressing adversarial attack vectors and defence mechanisms. The work is being prepared for submission to a peer-reviewed academic venue in cybersecurity or information security.</p>
+            <div class="research-tags">
+              <span>Cybersecurity</span><span>Adversarial Defence</span><span>Security Research</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING PROFILE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 07 — teaching</span>
+        <h2 class="section-title">Teaching Profile</h2>
+      </div>
+      <div class="teaching-layout">
+        <div class="teaching-text reveal">
+          <p>
+            I believe effective teaching in computing disciplines requires equal investment in conceptual rigour and practical application. My approach combines structured lecture delivery with intensive lab-based sessions, ensuring students can not only understand security principles but apply them in simulated real-world scenarios.
+          </p>
+          <p>
+            I design coursework with industry relevance in mind — drawing from current threat landscapes, forensic investigation workflows, and software engineering practices. For subjects like Cybersecurity and Digital Forensics, I integrate live tool usage and scenario-based exercises to develop genuine practitioner skills alongside academic understanding.
+          </p>
+        </div>
+        <div class="teaching-subjects reveal">
+          <h3 class="subjects-title">Subjects Taught</h3>
+          <div class="subject-list">
+            <div class="subject-item">
+              <span class="subject-code">CS-401</span>
+              <span class="subject-name">Cybersecurity &amp; Digital Forensics</span>
+            </div>
+            <div class="subject-item">
+              <span class="subject-code">CS-101</span>
+              <span class="subject-name">Operating System</span>
+            </div>
+            <div class="subject-item">
+              <span class="subject-code">CS-201</span>
+              <span class="subject-name">Core Java</span>
+            </div>
+            <div class="subject-item">
+              <span class="subject-code">CS-301</span>
+              <span class="subject-name">Core Python</span>
+            </div>
+            <div class="subject-item">
+              <span class="subject-code">DS-401</span>
+              <span class="subject-name">C Programming</span>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- ── CONTACT ── -->
-      <div class="tab" id="tab-contact">
-        <h2 class="page-title">Contact</h2>
-        <p class="contact-intro">Interested in collaboration, research, or faculty opportunities? I'd be glad to connect.</p>
-        <div class="contact-grid">
-          <a href="mailto:aniketspaul24@gmail.com" class="contact-card">
-            <span class="contact-icon">✉️</span>
-            <div><p class="contact-label">Email</p><p class="contact-value">aniketspaul24@gmail.com</p></div>
+  <!-- PROFESSIONAL FOCUS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 08 — focus</span>
+        <h2 class="section-title">Professional Focus</h2>
+      </div>
+      <div class="focus-grid">
+        <div class="focus-card reveal">
+          <div class="focus-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h3>Cybersecurity &amp; IT Roles</h3>
+          <p>I am interested in roles as a SOC Analyst, Security Analyst, or Cybersecurity Researcher where I can apply my knowledge of threat intelligence, OSINT, adversarial defence, and digital forensics in production security environments.</p>
+        </div>
+        <div class="focus-card reveal">
+          <div class="focus-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3>Academic Teaching Positions</h3>
+          <p>I am actively seeking faculty positions in computer science, information security, or related disciplines at institutions that value research-active educators. I bring hands-on subject expertise and a strong commitment to undergraduate student development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="mono-label">// 09 — contact</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-intro reveal">
+          <h3>Open to Opportunities</h3>
+          <p>
+            I am actively exploring academic faculty positions and IT/cybersecurity roles. If you are looking for a technically grounded, research-oriented educator or a security-focused professional with practical teaching and development experience, I welcome a conversation.
+          </p>
+          <button class="btn-primary" onclick="window.location.href='mailto:aniketspaul24@gmail.com'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Send an Email
+          </button>
+        </div>
+        <div class="contact-links reveal">
+          <a href="mailto:aniketspaul24@gmail.com" class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">aniketspaul24@gmail.com</span>
+            </div>
           </a>
-          <a href="https://github.com/AniketPaul24" target="_blank" rel="noopener" class="contact-card">
-            <span class="contact-icon">💻</span>
-            <div><p class="contact-label">GitHub</p><p class="contact-value">github.com/AniketPaul24</p></div>
+          <a href="https://linkedin.com/in/aniket-paul-51340a209" target="_blank" class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">aniket-paul-51340a209</span>
+            </div>
           </a>
-          <a href="https://linkedin.com/in/aniket-paul-51340a209" target="_blank" rel="noopener" class="contact-card">
-            <span class="contact-icon">🔗</span>
-            <div><p class="contact-label">LinkedIn</p><p class="contact-value">aniket-paul-51340a209</p></div>
+          <a href="https://github.com/AniketPaul24" target="_blank" class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">AniketPaul24</span>
+            </div>
           </a>
-          <a href="https://orcid.org/0009-0006-5500-1942" target="_blank" rel="noopener" class="contact-card">
-            <span class="contact-icon">📖</span>
-            <div><p class="contact-label">ORCID</p><p class="contact-value">0009-0006-5500-1942</p></div>
+          <a href="https://orcid.org/0009-0006-5500-1942" target="_blank" class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <span class="contact-label">ORCID</span>
+              <span class="contact-value">0009-0006-5500-1942</span>
+            </div>
           </a>
-          <div class="contact-card no-link">
-            <span class="contact-icon">📍</span>
-            <div><p class="contact-label">Location</p><p class="contact-value">Gujarat, India</p></div>
-          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-    </main>
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-name">Aniket Paul</span>
+      <span class="footer-copy">Ahmedabad, India · <span id="year"></span></span>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
