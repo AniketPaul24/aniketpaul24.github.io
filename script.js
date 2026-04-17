@@ -1,110 +1,192 @@
-// ===== TAB SWITCHING ENGINE =====
-const navBtns = document.querySelectorAll('.nav-btn');
-const tabs = document.querySelectorAll('.tab');
-const topbarTitle = document.getElementById('topbarTitle');
-const sidebar = document.getElementById('sidebar');
-const burger = document.getElementById('burger');
+/* =============================================
+   ANIKET PAUL — PORTFOLIO SCRIPTS v2
+   Motion Design System — Premium UX
+   ============================================= */
 
-const labelMap = {
-  dashboard: 'Dashboard', about: 'About', education: 'Education',
-  experience: 'Experience', skills: 'Skills', projects: 'Projects',
-  research: 'Research', contact: 'Contact'
-};
+// ---- YEAR ----
+document.getElementById('year').textContent = new Date().getFullYear();
 
-function switchTab(tabId) {
-  // Deactivate all
-  tabs.forEach(t => t.classList.remove('active'));
-  navBtns.forEach(b => b.classList.remove('active'));
+// ---- REDUCED MOTION CHECK ----
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Activate target
-  const targetTab = document.getElementById('tab-' + tabId);
-  const targetBtn = document.querySelector(`.nav-btn[data-tab="${tabId}"]`);
-  if (targetTab) { targetTab.classList.add('active'); }
-  if (targetBtn) { targetBtn.classList.add('active'); }
+// ---- SCROLL PROGRESS BAR ----
+const scrollProgress = document.getElementById('scroll-progress');
 
-  // Scroll main back to top
-  document.getElementById('main').scrollTop = 0;
+function updateScrollProgress() {
+  const scrollTop    = window.scrollY;
+  const docHeight    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress     = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  scrollProgress.style.width = `${progress}%`;
+}
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
-  // Update mobile topbar title
-  if (topbarTitle) topbarTitle.textContent = labelMap[tabId] || tabId;
+// ---- NAV SCROLL STATE ----
+const navbar = document.getElementById('navbar');
 
-  // Close mobile sidebar
-  sidebar.classList.remove('open');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+  updateScrollProgress();
+}, { passive: true });
+
+// ---- MOBILE MENU ----
+const hamburger   = document.getElementById('hamburger');
+const mobileMenu  = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('active', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', false);
+  });
+});
+
+// ---- REVEAL ON SCROLL ----
+// Upgraded: scale + blur, intentional stagger by sibling index
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const el       = entry.target;
+      const parent   = el.parentElement;
+      // Get all .reveal siblings (including already-visible ones for index calc)
+      const siblings = [...parent.querySelectorAll('.reveal')];
+      const idx      = siblings.indexOf(el);
+      // Only count NOT-YET-visible for delay: find position among pending siblings
+      const pending  = siblings.filter(s => !s.classList.contains('visible'));
+      const delayIdx = pending.indexOf(el);
+      const delay    = prefersReducedMotion ? 0 : Math.max(0, delayIdx) * 65;
+
+      setTimeout(() => {
+        el.classList.add('visible');
+        // Release will-change after animation completes to free compositor
+        if (!prefersReducedMotion) {
+          setTimeout(() => { el.style.willChange = 'auto'; }, 620);
+        }
+      }, delay);
+
+      revealObserver.unobserve(el);
+    });
+  },
+  { threshold: 0.06, rootMargin: '0px 0px -32px 0px' }
+);
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ---- SECTION HEAD RULE ANIMATION ----
+// Triggers the expanding underline on each section title
+const sectionHeadObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        sectionHeadObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+document.querySelectorAll('.section-head').forEach(el => sectionHeadObserver.observe(el));
+
+// ---- ACTIVE NAV LINK (class-based, not inline styles) ----
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          const matches = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('active', matches);
+        });
+      }
+    });
+  },
+  { threshold: 0.4 }
+);
+
+sections.forEach(s => sectionObserver.observe(s));
+
+// ---- CV DOWNLOAD ----
+function downloadCV() {
+  const cvUrl = 'https://raw.githubusercontent.com/AniketPaul24/aniketpaul24.github.io/main/Aniket_Paul_CV.pdf';
+
+  const link = document.createElement('a');
+  link.href = cvUrl;
+  link.download = 'Aniket_Paul_CV.pdf';
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
-// Sidebar nav buttons
-navBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    switchTab(btn.dataset.tab);
+// ---- SMOOTH ANCHOR SCROLL (offset for fixed nav) ----
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue('--nav-h')
+      ) || 64;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+
+      // Close mobile menu if open
+      if (mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+      }
+    }
   });
 });
 
-// Dashboard CTA / quick card buttons
-document.querySelectorAll('[data-goto]').forEach(el => {
-  el.addEventListener('click', () => {
-    switchTab(el.dataset.goto);
+// ---- BUTTON PRESS RIPPLE (subtle tactile feedback) ----
+// Adds a brief scale-down on mousedown for all interactive buttons
+if (!prefersReducedMotion) {
+  document.querySelectorAll('.btn-primary, .btn-outline, .nav-cta').forEach(btn => {
+    btn.addEventListener('mousedown', () => {
+      btn.style.transition = 'transform 80ms ease, box-shadow 80ms ease';
+    });
+    btn.addEventListener('mouseup', () => {
+      // Restore transition after brief delay
+      setTimeout(() => { btn.style.transition = ''; }, 200);
+    });
   });
-});
+}
 
-// Mobile burger
-burger.addEventListener('click', () => {
-  sidebar.classList.toggle('open');
-});
-
-// Close sidebar when clicking outside on mobile
-document.addEventListener('click', (e) => {
-  if (window.innerWidth <= 768 &&
-      sidebar.classList.contains('open') &&
-      !sidebar.contains(e.target) &&
-      e.target !== burger) {
-    sidebar.classList.remove('open');
+// ---- KEYBOARD ACCESSIBILITY: Close mobile menu on Escape ----
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', false);
+    hamburger.focus();
   }
 });
 
-// ===== TERMINAL TYPEWRITER =====
-const lines = [
-  { type: 'cmd', text: '$ whoami' },
-  { type: 'hi',  text: 'aniket.paul' },
-  { type: 'cmd', text: '$ cat roles.txt' },
-  { type: 'out', text: 'Assistant Professor' },
-  { type: 'out', text: 'Cybersecurity Educator' },
-  { type: 'out', text: 'Linux Enthusiast' },
-  { type: 'cmd', text: '$ nmap --skills self' },
-  { type: 'out', text: 'Open: Digital Forensics' },
-  { type: 'out', text: 'Open: OSINT / Threat Intel' },
-  { type: 'out', text: 'Open: Python / Java / C' },
-  { type: 'cmd', text: '$ echo $PHILOSOPHY' },
-  { type: 'hi',  text: '"Break it. Learn it. Defend it."' },
-];
-
-const termBody = document.getElementById('terminalBody');
-let lineIdx = 0, charIdx = 0, currentEl = null;
-
-function typeChar() {
-  if (!termBody) return;
-  if (lineIdx >= lines.length) {
+// ---- HERO CONTENT: Sequence reveals on load ----
+// Override default stagger for hero elements — tighter, more intentional
+if (!prefersReducedMotion) {
+  const heroReveals = document.querySelectorAll('#hero .reveal');
+  heroReveals.forEach((el, i) => {
+    // Detach from intersection observer — hero is always in view on load
+    revealObserver.unobserve(el);
     setTimeout(() => {
-      termBody.innerHTML = '';
-      lineIdx = 0; charIdx = 0; currentEl = null;
-      typeChar();
-    }, 3200);
-    return;
-  }
-  const line = lines[lineIdx];
-  if (charIdx === 0) {
-    currentEl = document.createElement('div');
-    currentEl.className = 't-' + line.type;
-    termBody.appendChild(currentEl);
-  }
-  currentEl.textContent = line.text.slice(0, charIdx + 1);
-  charIdx++;
-  if (charIdx < line.text.length) {
-    setTimeout(typeChar, line.type === 'cmd' ? 52 : 28);
-  } else {
-    charIdx = 0; lineIdx++;
-    termBody.scrollTop = termBody.scrollHeight;
-    setTimeout(typeChar, line.type === 'cmd' ? 380 : 110);
-  }
+      el.classList.add('visible');
+      setTimeout(() => { el.style.willChange = 'auto'; }, 620);
+    }, 120 + i * 90);
+  });
 }
-
-typeChar();
